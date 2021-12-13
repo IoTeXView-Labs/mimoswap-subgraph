@@ -1,6 +1,6 @@
-# Uniswap V2 Subgraph
+# Mimo Protocol V2 Subgraph
 
-[Uniswap](https://uniswap.org/) is a decentralized protocol for automated token exchange on Ethereum.
+[Mimo](https://mimo.finance/) is a decentralized protocol for automated token exchange on IoTeX.
 
 This subgraph dynamically tracks any pair created by the uniswap factory. It tracks of the current state of Uniswap contracts, and contains derived stats for things like historical data and USD prices.
 
