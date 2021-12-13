@@ -1,8 +1,8 @@
 /* eslint-disable prefer-const */
 import { log } from '@graphprotocol/graph-ts'
-import { PairCreated } from '../types/Factory/Factory'
-import { Bundle, Pair, Token, UniswapFactory } from '../types/schema'
-import { Pair as PairTemplate } from '../types/templates'
+import { PairCreated } from '../../generated/MimoFactory/MimoFactory'
+import { Bundle, Pair, Token, UniswapFactory } from '../../generated/schema'
+import { MimoPair as PairTemplate } from '../../generated/templates'
 import {
   FACTORY_ADDRESS,
   fetchTokenDecimals,
@@ -11,7 +11,7 @@ import {
   fetchTokenTotalSupply,
   ZERO_BD,
   ZERO_BI,
-} from './helpers'
+} from './Helpers'
 
 export function handleNewPair(event: PairCreated): void {
   // load factory (create if first exchange)
@@ -112,4 +112,5 @@ export function handleNewPair(event: PairCreated): void {
   token1.save()
   pair.save()
   factory.save()
+
 }

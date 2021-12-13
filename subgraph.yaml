@@ -5,51 +5,51 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: Factory
+    name: MimoFactory
     network: mainnet
     source:
       address: '0xda257cBe968202Dea212bBB65aB49f174Da58b9D'
-      abi: Factory
-      startBlock: 14585630
+      abi: MimoFactory
+      startBlock: 14115634
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
-      file: ./src/mappings/factory.ts
+      file: ./src/mappings/Factory.ts
       entities:
         - Pair
         - Token
       abis:
-        - name: Factory
-          file: ./abis/factory.json
-        - name: ERC20
-          file: ./abis/ERC20.json
-        - name: ERC20SymbolBytes
-          file: ./abis/ERC20SymbolBytes.json
-        - name: ERC20NameBytes
-          file: ./abis/ERC20NameBytes.json
+        - name: MimoFactory
+          file: ./abis/MimoFactory.json
+        - name: MimoERC20
+          file: ./abis/MimoERC20.json
+        - name: MimoERC20NameBytes
+          file: ./abis/MimoERC20NameBytes.json
+        - name: MimoERC20SymbolBytes
+          file: ./abis/MimoERC20SymbolBytes.json
       eventHandlers:
         - event: PairCreated(indexed address,indexed address,address,uint256)
           handler: handleNewPair
 templates:
   - kind: ethereum/contract
-    name: Pair
+    name: MimoPair
     network: mainnet
     source:
-      abi: Pair
+      abi: MimoPair
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
-      file: ./src/mappings/core.ts
+      file: ./src/mappings/Core.ts
       entities:
         - Pair
         - Token
       abis:
-        - name: Pair
-          file: ./abis/pair.json
-        - name: Factory
-          file: ./abis/factory.json
+        - name: MimoPair
+          file: ./abis/MimoPair.json
+        - name: MimoFactory
+          file: ./abis/MimoFactory.json
       eventHandlers:
         - event: Mint(indexed address,uint256,uint256)
           handler: handleMint
